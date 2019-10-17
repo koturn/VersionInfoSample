@@ -1,0 +1,18 @@
+version: 1.0.{build}
+image: Visual Studio 2019
+install:
+- cmd: '"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"'
+build_script:
+- cmd: >-
+    mkdir build
+
+    cd build
+
+    cmake .. -DCMAKE_BUILD_TYPE=Release -G "NMake Makefiles"
+
+    cmake --build .
+test_script:
+- cmd: '"main.exe"'
+artifacts:
+- path: build/main.exe
+  name: Version Information Sample Program

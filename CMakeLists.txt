@@ -9,8 +9,16 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(RCFILE "${CMAKE_CURRENT_BINARY_DIR}/VersionInfo.rc")
+include(cmake/GenerateVersionRcFile.cmake)
+generate_version_rcfile(
+  "${RCFILE}"
+  NAME main
+  PRODUCT_NAME "Version Information Sample"
+  COMPANY_NAME "koturn")
+
 file(GLOB SRCS *.cpp *.cxx *.cc)
 add_executable(
   main
   ${SRCS}
-  VersionInfo.rc)
+  ${RCFILE})

@@ -11,6 +11,9 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+# Auto generated files by cmake configuration
+VersionInfo.rc
+
 # Output files
 *.exe
 *.o
